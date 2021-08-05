@@ -124,14 +124,14 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       // 認証
       (await FirebaseAuth.instance.signInWithEmailAndPassword(
-              email: 'ryuta.yamaguchi@takacom.co.jp', password: 'xxxxxx'))
+              email: 'ryuta.yamaguchi@xxxxxxx.co.jp', password: 'xxxxxx'))
           .user;
     } catch (e, s) {
       print('$e: $s');
       // 登録
       final User? user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(
-                  email: 'ryuta.yamaguchi@takacom.co.jp', password: 'xxxxxx'))
+                  email: 'ryuta.yamaguchi@xxxxxxx.co.jp', password: 'xxxxxx'))
           .user;
       print("登録: $user");
       return;
