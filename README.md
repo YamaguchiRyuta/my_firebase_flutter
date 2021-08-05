@@ -42,8 +42,10 @@ samples, guidance on mobile development, and a full API reference.
   ```
 
 - [web/index.htmlにSDKを設定](https://firebase.flutter.dev/docs/installation/web)
-  追記内容はFirebaseプロジェクトのマイアプリにウェブアプリを追加し、
-  「プロジェクトの設定」から確認できる。
+  
+追記内容はFirebaseプロジェクトのマイアプリにウェブアプリを追加し、
+
+「プロジェクトの設定」から確認できる。
 
   ```html
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -59,8 +61,8 @@ samples, guidance on mobile development, and a full API reference.
   <script>
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // 以下の値は適切にセットすること。
     var firebaseConfig = {
-  /*
       apiKey: "API_KEY",
       authDomain: "PROJECT_ID.firebaseapp.com",
       databaseURL: "https://PROJECT_ID.firebaseio.com",
@@ -69,7 +71,6 @@ samples, guidance on mobile development, and a full API reference.
       messagingSenderId: "SENDER_ID",
       appId: "APP_ID",
       measurementId: "G-MEASUREMENT_ID",
-  */
     };
   
     // Initialize Firebase
@@ -79,8 +80,17 @@ samples, guidance on mobile development, and a full API reference.
   ```
 
 - [FlutterFireを初期化するようmain.dartを編集](https://firebase.flutter.dev/docs/overview/#initializing-flutterfire)
-  FutureBuilder経由でMyAppを渡す。
-  firebaseのauth, storeなどを実装
+
+FutureBuilder経由でMyAppを渡す。StatefulWidgetを使う方法も紹介されていた。
+
+firebaseのauth, storeなどを実装。
+
+- Firebase****.instance でauthやstoreのインスタンスを参照できる。これを使うのがメイン
+- 認証エラー時は例外が投げられる。例外のStacktraceを見れば原因が分かる
+- Authenticationを使うにはFirebase側でSign-in methodを設定する必要がある。
+- 本番環境モードでのFirestoreにはルールの設定が必要。
+- Firestoreは普通のNoSQL。MongoDBとかのような。
+
 # デプロイ手順
 - Firebase CLIをインストール
 
@@ -91,13 +101,17 @@ samples, guidance on mobile development, and a full API reference.
   ```
 
 - Firebaseプロジェクトとして初期化
+  
   publicディレクトリの指定では build/web を指定すること
+  
   色々聞かれるが、CLIのメッセージを見ればなんとかなる
+  
   ```bash
   firebase init
   ```
   
 - FlutterでWebを有効化していないならする
+  
   ```bash
   flutter channel stable
   flutter upgrade
@@ -105,17 +119,24 @@ samples, guidance on mobile development, and a full API reference.
   # com.exampleから変更していれば--orgオプションは省略可
   flutter create --org package_name .
   ```
+  
 - FlutterをWeb用にビルド
+  
   通常はCanvas要素としてレンダリングされる。
+  
   フォントを追加しないと漢字が中国語っぽいフォントになってしまう
+  
   ```bash
   flutter build web
   # flutter build web --web-renderer canvaskit
   ```
 
   htmlでビルドする場合はこっち。
+  
   漢字のフォントは直るが、Firefoxだと微妙にレイアウトがズレたりするっぽい。
+  
   (FloatingActionButtonにhoverした時など)
+  
   ```bash
   flutter build web --web-renderer html
   ```
@@ -124,5 +145,7 @@ samples, guidance on mobile development, and a full API reference.
   ```bash
   firebase deploy
   ```
+  
+  こっちも見ておこう
   
   [Firebaseドキュメント](https://firebase.google.com/docs/hosting?hl=ja)
