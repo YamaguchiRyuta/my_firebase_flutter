@@ -145,7 +145,10 @@ firebaseのauth, storeなどを実装。
   ```bash
   firebase deploy
   ```
-  
+
+  デプロイ結果  
+  [FirebaseHosting](https://fir-first-a8330.web.app)
+
   こっちも見ておこう
   
   [Firebaseドキュメント](https://firebase.google.com/docs/hosting?hl=ja)
