@@ -16,6 +16,20 @@ void main() {
   });
 }
 
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(App());
+
+//   FirebaseAuth.instance.authStateChanges().listen((User? user) {
+//     if (user == null) {
+//       print('User is currently signed out!');
+//     } else {
+//       print('User is signed in!');
+//     }
+//   });
+// }
+
 /// We are using a StatefulWidget such that we only create the [Future] once,
 /// no matter how many times our widget rebuild.
 /// If we used a [StatelessWidget], in the event where [App] is rebuilt, that
@@ -184,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextButton(
               onPressed: _login,
-              child: Text("ログイン"),
+              child: Text("ログインログイン"),
             ),
             TextButton(
               onPressed: () async {

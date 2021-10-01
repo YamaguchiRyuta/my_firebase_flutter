@@ -1,3 +1,6 @@
+[![Deploy to Firebase Hosting on merge](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-merge.yml)
+[![Deploy to Firebase Hosting on PR](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-pull-request.yml)
+
 # my_firebase
 
 A new Flutter project.
@@ -148,7 +151,12 @@ firebaseのauth, storeなどを実装。
 
   デプロイ結果  
   [FirebaseHosting](https://fir-first-a8330.web.app)
+  [FirebaseHosting](https://fir-first-a8330--pr1-fix-readme-md-77g2zu2x.web.app)
+  
 
   こっちも見ておこう
   
   [Firebaseドキュメント](https://firebase.google.com/docs/hosting?hl=ja)
+
+  GitHub Actions
+  [with GitHub Actions](https://zenn.dev/pressedkonbu/articles/deploy-flutter-web-app-with-firebase-hosting)
