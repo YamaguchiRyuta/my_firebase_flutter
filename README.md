@@ -155,3 +155,6 @@ firebaseのauth, storeなどを実装。
   こっちも見ておこう
   
   [Firebaseドキュメント](https://firebase.google.com/docs/hosting?hl=ja)
+
+  GitHub Actions
+  [with GitHub Actions](https://zenn.dev/pressedkonbu/articles/deploy-flutter-web-app-with-firebase-hosting)
