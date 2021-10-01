@@ -41,5 +41,5 @@ jobs:
       # - name: Run tests
       # run: dart test
 
-       - name: Deploy
-       run: firebase deploy
+      - name: Deploy
+        run: firebase deploy
