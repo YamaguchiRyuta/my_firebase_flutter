@@ -1,3 +1,6 @@
+[![Deploy to Firebase Hosting on merge](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-merge.yml)
+[![Deploy to Firebase Hosting on PR](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/YamaguchiRyuta/my_firebase_flutter/actions/workflows/firebase-hosting-pull-request.yml)
+
 # my_firebase
 
 A new Flutter project.
@@ -12,8 +15,8 @@ A few resources to get you started if this is your first Flutter project:
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
 For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[online documentation](https://flutter.dev/docs), which offers tutorials, samples, guidance on
+mobile development, and a full API reference.
 
 # 環境構築でのメモ
 
@@ -22,6 +25,7 @@ samples, guidance on mobile development, and a full API reference.
 - Intel Virtualization Technologyも有効にする。
 
 # 開発手順
+
 - Android StudioでFlutterプロジェクトを新規作成
 - [pubspec.yamlにfirebase.coreを追加](https://firebase.flutter.dev/docs/overview/#installation)
 
@@ -42,23 +46,23 @@ samples, guidance on mobile development, and a full API reference.
   ```
 
 - [web/index.htmlにSDKを設定](https://firebase.flutter.dev/docs/installation/web)
-  
+
 追記内容はFirebaseプロジェクトのマイアプリにウェブアプリを追加し、
 
 「プロジェクトの設定」から確認できる。
 
   ```html
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-  
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
 
-  <script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+<script>
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     // 以下の値は適切にセットすること。
@@ -76,7 +80,9 @@ samples, guidance on mobile development, and a full API reference.
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-  </script>
+  
+
+</script>
   ```
 
 - [FlutterFireを初期化するようmain.dartを編集](https://firebase.flutter.dev/docs/overview/#initializing-flutterfire)
@@ -92,6 +98,7 @@ firebaseのauth, storeなどを実装。
 - Firestoreは普通のNoSQL。MongoDBとかのような。
 
 # デプロイ手順
+
 - Firebase CLIをインストール
 
   ```bash
@@ -101,17 +108,17 @@ firebaseのauth, storeなどを実装。
   ```
 
 - Firebaseプロジェクトとして初期化
-  
+
   publicディレクトリの指定では build/web を指定すること
-  
+
   色々聞かれるが、CLIのメッセージを見ればなんとかなる
-  
+
   ```bash
   firebase init
   ```
-  
+
 - FlutterでWebを有効化していないならする
-  
+
   ```bash
   flutter channel stable
   flutter upgrade
@@ -119,28 +126,28 @@ firebaseのauth, storeなどを実装。
   # com.exampleから変更していれば--orgオプションは省略可
   flutter create --org package_name .
   ```
-  
+
 - FlutterをWeb用にビルド
-  
+
   通常はCanvas要素としてレンダリングされる。
-  
+
   フォントを追加しないと漢字が中国語っぽいフォントになってしまう
-  
+
   ```bash
   flutter build web
   # flutter build web --web-renderer canvaskit
   ```
 
   htmlでビルドする場合はこっち。
-  
+
   漢字のフォントは直るが、Firefoxだと微妙にレイアウトがズレたりするっぽい。
-  
+
   (FloatingActionButtonにhoverした時など)
-  
+
   ```bash
   flutter build web --web-renderer html
   ```
-  
+
   デプロイ実行
   ```bash
   firebase deploy
@@ -150,5 +157,8 @@ firebaseのauth, storeなどを実装。
   [FirebaseHosting](https://fir-first-a8330.web.app)
 
   こっちも見ておこう
-  
+
   [Firebaseドキュメント](https://firebase.google.com/docs/hosting?hl=ja)
+
+  GitHub Actions
+  [with GitHub Actions](https://zenn.dev/pressedkonbu/articles/deploy-flutter-web-app-with-firebase-hosting)
