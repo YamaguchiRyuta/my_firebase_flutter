@@ -151,6 +151,8 @@ firebaseのauth, storeなどを実装。
 
   デプロイ結果  
   [FirebaseHosting](https://fir-first-a8330.web.app)
+  [FirebaseHosting](https://fir-first-a8330--pr1-fix-readme-md-77g2zu2x.web.app)
+  
 
   こっちも見ておこう
   
